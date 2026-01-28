@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { 
@@ -9,7 +9,7 @@ import {
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useStore } from '@/lib/store'
-import { getCurrentUser, canAccessDashboard } from '@/lib/auth'
+import { getCurrentUser, canAccessDashboard, isAuthenticated } from '@/lib/auth'
 import { Button } from '@/components/ui'
 
 interface NavItem {
@@ -37,11 +37,11 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const pathname = usePathname()
   const { demoRole, setDemoRole } = useStore()
   const user = getCurrentUser()
-  const [sidebarOpen, setSidebarOpen] = React.useState(false)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
 
   const filteredNavItems = navItems.filter(item => item.roles.includes(demoRole))
 
-  if (!canAccessDashboard()) {
+  if (!isAuthenticated()) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">

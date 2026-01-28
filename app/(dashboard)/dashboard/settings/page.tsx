@@ -14,7 +14,7 @@ export default function SettingsPage() {
     name: user?.name || '',
     email: user?.email || '',
     phone: user?.phone || '',
-    bio: '',
+    bio: user?.bio || '',
   })
 
   const handleSave = () => {

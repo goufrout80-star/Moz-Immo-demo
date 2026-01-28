@@ -1,3 +1,4 @@
+import React from 'react'
 import { UserRole, getCurrentUser } from './auth'
 
 // ============================================
@@ -99,6 +100,6 @@ export function withPermission<T extends object>(
     if (!hasPermission(permission)) {
       return null
     }
-    return Component(props)
+    return React.createElement(Component, props)
   }
 }

@@ -8,6 +8,8 @@ export interface User {
   id: number
   name: string
   email: string
+  phone?: string
+  bio?: string
   role: UserRole
   avatar?: string
 }
@@ -18,6 +20,8 @@ const DEMO_USERS: Record<string, User> = {
     id: 1,
     name: 'Ahmed El Fassi',
     email: 'admin@mozimmo.com',
+    phone: '+212 600 000 000',
+    bio: 'Founder of Moz Immo with 20 years of experience in luxury real estate.',
     role: 'admin',
     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
   },
@@ -25,6 +29,8 @@ const DEMO_USERS: Record<string, User> = {
     id: 2,
     name: 'Youssef Bennani',
     email: 'owner@mozimmo.com',
+    phone: '+212 611 111 111',
+    bio: 'Proud owner of several luxury villas in Marrakech Palmeraie.',
     role: 'owner',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
   },
@@ -32,6 +38,8 @@ const DEMO_USERS: Record<string, User> = {
     id: 3,
     name: 'Sophie Laurent',
     email: 'client@mozimmo.com',
+    phone: '+33 6 00 00 00 00',
+    bio: 'Frequent traveler and luxury enthusiast.',
     role: 'client',
     avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
   },
