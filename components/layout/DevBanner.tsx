@@ -23,10 +23,10 @@ export function DevBanner() {
         >
           <button 
             onClick={() => setDevBannerHidden(true)}
-            className="absolute left-4 z-10 p-1 hover:bg-luxury-charcoal/10 rounded-full transition-colors group"
+            className="absolute left-4 z-10 p-1 bg-red-600 hover:bg-red-500 rounded-full transition-all duration-300 group shadow-lg border border-red-400/30 flex items-center justify-center"
             title="Hide development banner"
           >
-            <X className="w-3.5 h-3.5 text-luxury-charcoal group-hover:scale-110 transition-transform" />
+            <X className="w-3 h-3 text-white group-hover:scale-110 group-hover:rotate-90 transition-transform" />
           </button>
 
           <div className="relative flex-1 flex overflow-hidden whitespace-nowrap">
