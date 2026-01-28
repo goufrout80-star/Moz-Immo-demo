@@ -81,3 +81,5 @@ export const useAppStore = create<AppState>()(
     }
   )
 )
+
+export const useStore = useAppStore

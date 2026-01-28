@@ -152,7 +152,11 @@ export let villas: Villa[] = Array.from({ length: 20 }, (_, i) => ({
   id: i + 1,
   slug: `villa-${['riad-elegance', 'dar-serenity', 'palais-jardin', 'maison-soleil', 'villa-atlas', 'riad-luxe', 'dar-palmeraie', 'villa-oasis', 'maison-paradis', 'riad-royal', 'villa-eden', 'dar-harmonie', 'palais-rose', 'villa-saphir', 'riad-perle', 'maison-orient', 'villa-diamant', 'dar-etoile', 'palais-or', 'villa-jade'][i]}`,
   name: ['Riad Elegance', 'Dar Serenity', 'Palais du Jardin', 'Maison Soleil', 'Villa Atlas View', 'Riad Luxe', 'Dar Palmeraie', 'Villa Oasis', 'Maison Paradis', 'Riad Royal', 'Villa Eden', 'Dar Harmonie', 'Palais Rose', 'Villa Saphir', 'Riad Perle', 'Maison Orient', 'Villa Diamant', 'Dar Etoile', 'Palais Or', 'Villa Jade'][i],
-  description: `Experience unparalleled luxury in this stunning ${['traditional riad', 'modern villa', 'palatial estate', 'boutique residence', 'contemporary masterpiece'][i % 5]} nestled in the heart of Marrakech. This exceptional property combines authentic Moroccan architecture with modern amenities, offering guests an unforgettable retreat. The property features exquisite handcrafted details, lush gardens, and breathtaking views of the Atlas Mountains. Every corner tells a story of Moroccan craftsmanship and timeless elegance.\n\nThe interior spaces are thoughtfully designed to provide both privacy and communal gathering areas. Each bedroom is a sanctuary of comfort, featuring premium linens, en-suite bathrooms, and carefully curated decor. The living areas open onto beautiful courtyards and terraces, perfect for al fresco dining or simply enjoying the Marrakech sunshine.\n\nGuests have access to a private pool, fully equipped kitchen, and dedicated staff including a house manager and optional private chef. This is more than accommodation – it's an experience of Moroccan hospitality at its finest.`,
+  description: `Experience unparalleled luxury in this stunning ${['traditional riad', 'modern villa', 'palatial estate', 'boutique residence', 'contemporary masterpiece'][i % 5]} nestled in the heart of Marrakech. This exceptional property combines authentic Moroccan architecture with modern amenities, offering guests an unforgettable retreat. The property features exquisite handcrafted details, lush gardens, and breathtaking views of the Atlas Mountains. Every corner tells a story of Moroccan craftsmanship and timeless elegance.
+
+The interior spaces are thoughtfully designed to provide both privacy and communal gathering areas. Each bedroom is a sanctuary of comfort, featuring premium linens, en-suite bathrooms, and carefully curated decor. The living areas open onto beautiful courtyards and terraces, perfect for al fresco dining or simply enjoying the Marrakech sunshine.
+
+Guests have access to a private pool, fully equipped kitchen, and dedicated staff including a house manager and optional private chef. This is more than accommodation – it's an experience of Moroccan hospitality at its finest.`,
   shortDescription: `Stunning ${['traditional riad', 'modern villa', 'palatial estate', 'boutique residence', 'contemporary masterpiece'][i % 5]} with ${3 + (i % 4)} bedrooms, private pool, and panoramic views.`,
   location: locations[i % locations.length],
   price: [800, 1200, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000][i % 10],
@@ -858,6 +862,8 @@ export function getAllReservations(): Reservation[] {
   return reservations
 }
 
+export const getReservations = getAllReservations
+
 // Invoices
 export function getInvoicesByUser(userId: number): Invoice[] {
   return invoices.filter(i => i.userId === userId)
@@ -866,6 +872,8 @@ export function getInvoicesByUser(userId: number): Invoice[] {
 export function getAllInvoices(): Invoice[] {
   return invoices
 }
+
+export const getInvoices = getAllInvoices
 
 // Analytics (mock data for admin dashboard)
 export function getAnalytics() {
