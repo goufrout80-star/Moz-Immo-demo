@@ -14,7 +14,7 @@ export default function TestimonialsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20">
+      <section className="relative pt-40 pb-20">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-50 to-white dark:from-gray-900 dark:to-luxury-charcoal" />
         <div className="relative container-luxury">
           <div className="max-w-3xl">

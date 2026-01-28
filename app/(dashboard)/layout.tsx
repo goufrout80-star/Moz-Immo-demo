@@ -71,7 +71,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
       {/* Sidebar */}
       <aside className={cn(
-        "fixed top-20 left-0 h-[calc(100vh-5rem)] w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 transition-transform z-30",
+        "fixed top-28 left-0 h-[calc(100vh-7rem)] w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 transition-transform z-30",
         sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
       )}>
         <div className="flex flex-col h-full p-4">
@@ -128,7 +128,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       </aside>
 
       {/* Main Content */}
-      <main className="lg:ml-64 pt-20 min-h-screen">
+      <main className="lg:ml-64 pt-32 min-h-screen">
         <div className="p-6 lg:p-8">
           {children}
         </div>

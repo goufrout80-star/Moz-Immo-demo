@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
-import { Header, Footer, CookieConsent } from '@/components/layout'
+import { Header, Footer, CookieConsent, DevBanner } from '@/components/layout'
 import { ThemeProvider } from '@/components/providers'
 
 const inter = Inter({
@@ -60,6 +60,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${playfair.variable} font-sans`}>
         <ThemeProvider>
+          <DevBanner />
           <Header />
           <main className="min-h-screen">{children}</main>
           <Footer />
