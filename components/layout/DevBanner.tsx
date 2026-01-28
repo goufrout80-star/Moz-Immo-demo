@@ -1,12 +1,35 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { AlertCircle } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { AlertCircle, X } from 'lucide-react'
+import { useEffect } from 'react'
+import { useAppStore } from '@/lib/store'
 
 export function DevBanner() {
+  const { devBannerHidden, setDevBannerHidden } = useAppStore()
+
+  useEffect(() => {
+    document.documentElement.style.setProperty('--banner-height', devBannerHidden ? '0px' : '32px')
+  }, [devBannerHidden])
+
   return (
-    <div className="fixed top-0 left-0 right-0 h-8 bg-luxury-gold overflow-hidden flex items-center z-[60]">
-      <div className="relative flex overflow-hidden whitespace-nowrap">
+    <AnimatePresence>
+      {!devBannerHidden && (
+        <motion.div
+          initial={{ y: -32, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -32, opacity: 0 }}
+          className="fixed top-0 left-0 right-0 h-8 bg-luxury-gold overflow-hidden flex items-center z-[60]"
+        >
+          <button 
+            onClick={() => setDevBannerHidden(true)}
+            className="absolute left-4 z-10 p-1 hover:bg-luxury-charcoal/10 rounded-full transition-colors group"
+            title="Hide development banner"
+          >
+            <X className="w-3.5 h-3.5 text-luxury-charcoal group-hover:scale-110 transition-transform" />
+          </button>
+
+          <div className="relative flex-1 flex overflow-hidden whitespace-nowrap">
         <motion.div
           animate={{ x: ['0%', '100%'] }}
           transition={{
@@ -33,7 +56,9 @@ export function DevBanner() {
           <BannerContent />
         </motion.div>
       </div>
-    </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   )
 }
 

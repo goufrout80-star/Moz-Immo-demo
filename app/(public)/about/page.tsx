@@ -51,7 +51,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-40 pb-20 overflow-hidden">
+      <section className="relative pt-[calc(5rem+var(--banner-height)+3rem)] pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-50 to-white dark:from-gray-900 dark:to-luxury-charcoal" />
         <div className="relative container-luxury">
           <div className="max-w-3xl">

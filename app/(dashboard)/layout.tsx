@@ -35,7 +35,7 @@ const navItems: NavItem[] = [
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
-  const { demoRole, setDemoRole } = useStore()
+  const { demoRole, setDemoRole, devBannerHidden } = useStore()
   const user = getCurrentUser()
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
@@ -71,7 +71,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
       {/* Sidebar */}
       <aside className={cn(
-        "fixed top-28 left-0 h-[calc(100vh-7rem)] w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 transition-transform z-30",
+        "fixed left-0 w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 transition-transform z-30",
+        devBannerHidden ? "top-20 h-[calc(100vh-5rem)]" : "top-28 h-[calc(100vh-7rem)]",
         sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
       )}>
         <div className="flex flex-col h-full p-4">
@@ -128,7 +129,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       </aside>
 
       {/* Main Content */}
-      <main className="lg:ml-64 pt-32 min-h-screen">
+      <main className="lg:ml-64 pt-[calc(5rem+var(--banner-height)+1rem)] min-h-screen">
         <div className="p-6 lg:p-8">
           {children}
         </div>

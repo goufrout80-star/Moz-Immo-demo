@@ -34,7 +34,7 @@ export default function BlogPostPage({ params }: Props) {
   return (
     <>
       {/* Back Button */}
-      <div className="pt-32 pb-4 container-luxury">
+      <div className="pt-[calc(5rem+var(--banner-height)+1rem)] pb-4 container-luxury">
         <Link href="/blog" className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-luxury-gold transition-colors">
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to Blog

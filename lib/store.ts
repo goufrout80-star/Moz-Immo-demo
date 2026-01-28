@@ -33,6 +33,10 @@ interface AppState {
   // Mobile menu
   mobileMenuOpen: boolean
   setMobileMenuOpen: (open: boolean) => void
+
+  // Dev Banner
+  devBannerHidden: boolean
+  setDevBannerHidden: (hidden: boolean) => void
 }
 
 export const useAppStore = create<AppState>()(
@@ -68,6 +72,10 @@ export const useAppStore = create<AppState>()(
       // Mobile menu
       mobileMenuOpen: false,
       setMobileMenuOpen: (open) => set({ mobileMenuOpen: open }),
+
+      // Dev Banner
+      devBannerHidden: false,
+      setDevBannerHidden: (hidden) => set({ devBannerHidden: hidden }),
     }),
     {
       name: 'moz-immo-storage',
@@ -77,6 +85,7 @@ export const useAppStore = create<AppState>()(
         cookieConsent: state.cookieConsent,
         demoRole: state.demoRole,
         wishlist: state.wishlist,
+        devBannerHidden: state.devBannerHidden,
       }),
     }
   )

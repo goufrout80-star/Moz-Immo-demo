@@ -646,7 +646,7 @@ export default function DiscoverCategoryPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-36 pb-12 bg-gradient-to-b from-luxury-cream to-white dark:from-luxury-slate dark:to-luxury-charcoal">
+      <section className="relative pt-[calc(5rem+var(--banner-height)+1.5rem)] pb-12 bg-gradient-to-b from-luxury-cream to-white dark:from-luxury-slate dark:to-luxury-charcoal">
         <div className="container-luxury">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <motion.h1

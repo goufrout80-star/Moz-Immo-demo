@@ -23,7 +23,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const pathname = usePathname()
-  const { theme, toggleTheme, locale, setLocale, demoRole, setDemoRole } = useAppStore()
+  const { theme, toggleTheme, locale, setLocale, demoRole, setDemoRole, devBannerHidden } = useAppStore()
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
@@ -37,7 +37,11 @@ export function Header() {
     : 'bg-transparent'
 
   return (
-    <header className={cn('fixed top-8 left-0 right-0 z-50 transition-all duration-300', headerBg)}>
+    <header className={cn(
+      'fixed left-0 right-0 z-50 transition-all duration-300', 
+      devBannerHidden ? 'top-0' : 'top-8',
+      headerBg
+    )}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
