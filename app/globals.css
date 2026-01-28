@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 250 249 247;
+    --foreground: 10 10 10;
+    --gold: 201 169 98;
+  }
+
+  .dark {
+    --background: 10 10 10;
+    --foreground: 250 249 247;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-luxury-cream dark:bg-luxury-charcoal text-luxury-charcoal dark:text-luxury-cream;
+    @apply antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+
+  ::selection {
+    @apply bg-luxury-gold/30 text-luxury-charcoal;
+  }
+}
+
+@layer components {
+  .container-luxury {
+    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
+  }
+
+  .container-wide {
+    @apply max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-16;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32 lg:py-40;
+  }
+
+  .section-padding-sm {
+    @apply py-16 md:py-24;
+  }
+
+  /* Modern Typography */
+  .heading-display {
+    @apply text-display-xl font-display font-bold tracking-tight;
+  }
+
+  .heading-section {
+    @apply text-display-md font-display font-semibold tracking-tight;
+  }
+
+  .heading-card {
+    @apply text-xl md:text-2xl font-semibold tracking-tight;
+  }
+
+  .text-body {
+    @apply text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed;
+  }
+
+  .text-body-lg {
+    @apply text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed;
+  }
+
+  /* Glass Effects */
+  .glass-card {
+    @apply bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-white/20 dark:border-white/10;
+  }
+
+  .glass-card-dark {
+    @apply bg-black/20 backdrop-blur-xl border border-white/10;
+  }
+
+  /* Gradient Text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-luxury-gold via-brand-400 to-luxury-gold;
+    background-size: 200% auto;
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-luxury-gold to-brand-300;
+  }
+
+  /* Hover Effects */
+  .hover-lift {
+    @apply transition-all duration-500 ease-out-expo hover:-translate-y-2 hover:shadow-2xl;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-500;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 40px rgba(201, 169, 98, 0.3);
+  }
+
+  /* Magnetic Button */
+  .btn-magnetic {
+    @apply relative overflow-hidden;
+  }
+
+  .btn-magnetic::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-luxury-gold to-brand-400 opacity-0 transition-opacity duration-300;
+  }
+
+  .btn-magnetic:hover::before {
+    @apply opacity-100;
+  }
+
+  /* Line Decorations */
+  .line-accent {
+    @apply w-12 h-px bg-luxury-gold;
+  }
+
+  .line-accent-vertical {
+    @apply w-px h-12 bg-luxury-gold;
+  }
+
+  /* Reveal Animation Classes */
+  .reveal-up {
+    @apply opacity-0 translate-y-8;
+  }
+
+  .reveal-up.revealed {
+    @apply opacity-100 translate-y-0 transition-all duration-1000 ease-out-expo;
+  }
+
+  /* Image Masks */
+  .mask-fade-bottom {
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+
+  .mask-fade-edges {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+  .animation-delay-600 { animation-delay: 600ms; }
+  .animation-delay-700 { animation-delay: 700ms; }
+  .animation-delay-800 { animation-delay: 800ms; }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .perspective-2000 {
+    perspective: 2000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  /* Smooth scroll snap */
+  .snap-x-mandatory {
+    scroll-snap-type: x mandatory;
+  }
+
+  .snap-start {
+    scroll-snap-align: start;
+  }
+
+  /* Hide scrollbar */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-luxury-gold/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-luxury-gold/50;
+}

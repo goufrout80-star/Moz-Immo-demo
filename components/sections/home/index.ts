@@ -1,0 +1,6 @@
+export * from './Hero'
+export * from './ServicesPreview'
+export * from './AboutSnippet'
+export * from './FeaturedVillas'
+export * from './Testimonials'
+export * from './CTA'
